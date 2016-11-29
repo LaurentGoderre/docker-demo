@@ -1,0 +1,7 @@
+web:
+    image: httpd:alpine
+    ports:
+        - 81:80
+    volumes:
+        - ./htdocs:/usr/local/apache2/htdocs
+    container_name: site1
