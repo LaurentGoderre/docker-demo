@@ -1,15 +1,17 @@
-web:
-    image: nginx:alpine
-    ports:
-        - 83:80
-    volumes:
-        - ./code:/code
-        - ./conf/site.conf:/etc/nginx/conf.d/default.conf
-    links:
-        - php
-    container_name: demo2_web
-php:
-    image: php:5-fpm-alpine
-    volumes:
-        - ./code:/code
-    container_name: demo2_php
+version: '2'
+services:
+    web:
+        image: nginx:alpine
+        ports:
+            - 83:80
+        volumes:
+            - ./code:/code
+            - ./conf/site.conf:/etc/nginx/conf.d/default.conf
+        links:
+            - php
+        container_name: demo2_web
+    php:
+        image: php:5-fpm-alpine
+        volumes:
+            - ./code:/code
+        container_name: demo2_php

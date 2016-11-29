@@ -1,11 +1,10 @@
 <h1>Authors</h1>
 <?php
-
 $dbconn = pg_connect(
-    "host=" . getenv("DB_PORT_5432_TCP_ADDR") .
-    " dbname=" . getenv("DB_ENV_POSTGRES_DB") .
-    " user=" . getenv("DB_ENV_POSTGRES_USER") .
-    " password=" . getenv("DB_ENV_POSTGRES_PASSWORD")
+    "host=db" .
+    " dbname=" . getenv("POSTGRES_DB") .
+    " user=" . getenv("POSTGRES_USER") .
+    " password=" . getenv("POSTGRES_PASSWORD")
 ) or die('Could not connect: ' . pg_last_error());
 
 $query = 'SELECT * FROM authors';
